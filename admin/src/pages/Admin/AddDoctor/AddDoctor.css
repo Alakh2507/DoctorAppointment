@@ -1,0 +1,163 @@
+
+.addDoctor-container {
+  padding: 30px 20px;
+}
+.addDocform {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 25px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+}
+
+
+.upload {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: gray;
+  font-size: 12px;
+}
+
+.upload-img {
+  width: 80px;
+  cursor: pointer;
+}
+
+
+.addalldata {
+  display: flex;
+  gap: 80px;
+  margin-top: 20px;
+}
+
+
+.addDoc-left,
+.addDoc-right {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.addDoc-left-data,
+.addDoc-right-data {
+  margin: 15px 0;
+}
+
+.addalldata p {
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.addalldata input,
+.addalldata textarea {
+  padding: 6px 8px;
+  font-size: 16px;
+  border: 1px solid #c1c1c1;
+  border-radius: 5px;
+  outline: none;
+  width: 300px;
+}
+
+.addalldata textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+.addDoc-btn {
+  margin-top: 20px;
+  max-width: 200px;
+  padding: 10px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  cursor: pointer;
+
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease;
+
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+.addDoc-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
+}
+
+.addDoc-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+@media (max-width: 1024px) {
+  .addalldata {
+    gap: 40px;
+  }
+
+  .addalldata input,
+  .addalldata textarea {
+    width: 260px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .addDoctor-container {
+    padding: 20px 12px;
+  }
+
+  .addDocform {
+    padding: 18px;
+  }
+
+  .upload {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .upload-img {
+    width: 70px;
+  }
+
+  .addalldata {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .addalldata input,
+  .addalldata textarea {
+    width: 100%;
+  }
+
+  .addDoc-btn {
+    max-width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .upload-img {
+    width: 60px;
+  }
+
+  .addalldata p {
+    font-size: 13px;
+  }
+
+  .addDoc-btn {
+    font-size: 15px;
+    padding: 12px 0;
+  }
+}

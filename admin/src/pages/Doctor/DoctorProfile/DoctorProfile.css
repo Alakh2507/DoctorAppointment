@@ -1,0 +1,74 @@
+
+.mypro-container {
+  width: 480px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.mypro-image-box {
+  text-align: center;
+}
+
+.mypro-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid #ddd;
+}
+
+.myproname {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.mypro-field {
+  margin-top: 10px;
+}
+
+.mypro-input {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.mypro-textarea {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.mypro-address {
+  display: flex;
+  gap: 10px;
+}
+
+.myproeditbtn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.myproeditbtn:hover {
+  background: #0056b3;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

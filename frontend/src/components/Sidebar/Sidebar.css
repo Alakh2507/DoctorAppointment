@@ -1,0 +1,71 @@
+/* Sidebar container */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #1e293b;
+  color: white;
+  position: fixed;
+  top: 70px; /* adjust to your navbar height */
+  left: -240px;
+  padding: 25px 15px;
+  transition: left 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+
+/* When active (visible) */
+.sidebar.active {
+  left: 0;
+}
+
+/* Logo */
+.sidebar-logo {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Links container */
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Links */
+.sidebar-links  a{
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+
+.sidebar-links a:hover {
+  color: white;
+  padding-left: 6px;
+}
+
+/* Active route highlight */
+.sidebar-links a.active {
+  color: white;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(128, 133, 238);
+}
+
+/* Dark overlay when sidebar open (mobile feel) */
+.overlay {
+  position: fixed;
+  top: 70px; 
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+/* Push main content when sidebar open */
+.main-content.shift {
+  margin-left: 240px;
+  transition: margin 0.3s ease;
+}

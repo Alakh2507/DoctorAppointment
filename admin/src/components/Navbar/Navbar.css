@@ -1,0 +1,97 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #BEBEBE;
+    padding: 10px 0px;
+    background-color: #FFFFFF;
+}
+
+.navbar-con{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:30px;
+    margin-left: 40px;
+}
+.navbar-con p{
+    border: 1px solid #BEBEBE;
+    padding: 3px 10px;
+    border-radius: 25px;
+    font-size: 14px;
+    color: grey;
+}
+.navbar-con img{
+   width: max(13vw, 200px);
+   cursor: pointer;
+}
+
+.navbar button{
+    padding:10px 50px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid #131418;
+    background-color: #5F6FFF;
+    color: white;
+    cursor: pointer;
+    margin-right:60px ;
+    transition: 1s;
+}
+
+.navbar button:hover{
+   transform: scale(1.01);
+   padding: 10px 45px;
+}
+.nav-munu{
+    display: none;
+}
+
+
+@media(max-width:900px){
+    .navbar{
+        padding:15px 0px;
+    }
+    .navbar-con{
+    gap:10px;
+    margin-left:10px;
+}
+.navbar-con p{
+    border: 1px solid #BEBEBE;
+    padding: 3px 8px;
+    border-radius: 25px;
+    font-size: 12px;
+    color: grey;
+}
+.navbar-con img{
+   width: max(10vw,150px);
+   cursor: pointer;
+}
+
+.navbar button{
+    padding:8px 40px;
+    font-size: 16px;
+    margin-right:10px;
+}
+
+.nav-btn-container{
+    display: flex;
+    flex-direction:row;
+}
+.navbar-btn{
+    display: none;
+}
+
+.nav-munu{
+    display: flex;
+    padding-right:30px;
+    margin-right: 20px;
+    width:55px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.nav-munu:hover{
+  transform: scale(1.07);
+}
+}

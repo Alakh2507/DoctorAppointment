@@ -1,0 +1,224 @@
+
+:root {
+  --bg-main: #f5f7fb;
+  --card-bg: #ffffff;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --border-light: #e5e7eb;
+  --primary: #4f46e5;
+  --success: #16a34a;
+  --danger: #dc2626;
+}
+
+
+.doAp-container {
+  width: 100%;
+  padding: 28px 20px;
+  background: var(--bg-main);
+  min-height: 100vh;
+}
+
+.doAp-container h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+
+.doAp-header {
+  display: grid;
+  grid-template-columns: 0.5fr 1.6fr 1fr 0.8fr 1.3fr 0.8fr 1fr;
+  padding: 16px 14px;
+  background: var(--card-bg);
+  border-radius: 14px 14px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+.doAp-info {
+  background: var(--card-bg);
+  border-radius: 0 0 14px 14px;
+  max-height: calc(100vh - 240px);
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+
+.doAp-info::-webkit-scrollbar {
+  width: 6px;
+}
+
+.doAp-info::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 20px;
+}
+
+.doAp-info::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+
+.doAp-data {
+  display: grid;
+  grid-template-columns: 0.5fr 1.6fr 1fr 0.8fr 1.3fr 0.8fr 1fr;
+  padding: 16px 14px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.doAp-data:hover {
+  background: #f9fafb;
+  transform: scale(1.002);
+}
+
+
+.patient-image {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f3f4f6;
+  transition: transform 0.2s ease;
+}
+
+.patient-image:hover {
+  transform: scale(1.05);
+}
+
+
+.badge-success {
+  background: #dcfce7;
+  color: var(--success);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-danger {
+  background: #fee2e2;
+  color: var(--danger);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+.doAp-cancel-div {
+  display: flex;
+  gap: 10px;
+}
+
+.doAp-cancel {
+  width: 34px;
+  height: 34px;
+  padding: 1px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.doAp-cancel:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+
+@media (max-width: 768px) {
+
+  .doAp-data p:nth-child(1)::before{
+    content:"#";
+    color: black;
+  }
+  .doAp-data p:nth-child(2)::before{
+    content:"name : ";
+    color: black;
+     font-weight: 600;
+  }
+  .doAp-data p:nth-child(3)::before{
+    content:"Payment : ";
+     font-weight: 600;
+     color: var(--success);
+  }
+  .doAp-data p:nth-child(4)::before{
+    content:"Age : ";
+     color: black;
+     font-weight: 600;
+  }
+  .doAp-data p:nth-child(5)::before{
+    content:"Date : ";
+     color: black;
+     font-weight: 600;
+  }
+  .doAp-data p:nth-child(6)::before{
+    content:"Fees : ";
+     color: black;
+     font-weight: 600;
+  }
+
+
+
+  .doAp-header {
+    display: none;
+  }
+
+  .doAp-info {
+    box-shadow: none;
+    background: transparent;
+    max-height: none;
+  }
+
+  .doAp-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 18px;
+    margin-bottom: 16px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  }
+
+  .doAp-data p {
+    font-size: 14px;
+  }
+
+  .doAp-data > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .doAp-cancel-div {
+    margin-top: 10px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .doAp-container {
+    padding: 20px 14px;
+  }
+
+  .patient-image {
+    width: 38px;
+    height: 38px;
+  }
+
+}

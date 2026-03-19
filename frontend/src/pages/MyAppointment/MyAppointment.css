@@ -1,0 +1,124 @@
+.myAppoint-container{
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.myAppoint-list{
+    display: flex;
+    flex-direction: column;
+}
+.myAppoint-item{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+.myAppoint-cart{
+    display: flex;
+    flex-direction: row;
+    gap:40px;
+    align-items: center;
+    padding: 2px;
+    justify-content: space-between;
+}
+.myAppoint-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.myAppoint-cart img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    background-color:#EAEFFF;
+}
+
+.btn-Pay{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn-cancel{
+    padding:13px 40px;
+    border:1px solid #BABABA;
+    border-radius: 8px;
+    font-size:16px;
+    background-color:#5F6FFF;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover{
+    transform: scale(1.08);
+}
+
+.btn-cancel.active{
+    background-color:#FFFFFF;
+    color:black;
+}
+
+ 
+@media (max-width: 1024px) {
+    .myAppoint-item{
+        flex-direction: column;
+        align-items: flex-start;
+        width:100%; 
+    }
+    .btn-Pay{
+        width: 100%;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .myAppoint-cart {
+        align-items: flex-start;
+    }
+
+    .myAppoint-item{
+        flex-direction: column;
+        align-items: flex-start;
+        width:100%; 
+    }
+    .btn-Pay{
+        width: 100%;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    .myAppoint-cart {
+        gap: 20px;
+    }
+
+    .myAppoint-info {
+    display: flex;
+    flex-direction: column;
+    gap:3px;
+}
+.myAppoint-cart img{
+    width: 140px;
+    height: 140px;
+}
+
+.btn-Pay{
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+    padding: 0 10px;
+}
+.myAppoint-info span{
+    color: grey;}
+}
