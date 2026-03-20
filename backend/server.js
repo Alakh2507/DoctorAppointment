@@ -12,6 +12,7 @@ const port=process.env.PORT ||4000
 
 //db connection
 connectDB()
+import './config/cloudinary.js';
 
 //middlewares
 app.use(cors())

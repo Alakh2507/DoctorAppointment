@@ -36,7 +36,7 @@ const DoctorsList = async (req, res) => {
         return res.json({ success: true, doctorlist })
     } catch (error) {
         console.log(error.message)
-        res.josn({ success: false, message: error.message })
+        res.json({ success: false, message: error.message })
     }
 
 }
@@ -279,10 +279,10 @@ const doctorProfile=async(req,res)=>{
 const updateDoctorProfile = async (req, res) => {
   try {
     const {name, speciality,experience,about,available, line1, line2 } = req.body;
-    const image =req.file?.filename
+    
     console.log("Body data received:", req.body);
     const docId = req.docId;
-     console.log(image)
+    
     
     const updatedDoctor = await doctorModel.findByIdAndUpdate(
       docId,

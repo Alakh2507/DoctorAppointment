@@ -24,7 +24,7 @@
   border: 1px solid #C9D8FF;
   border-radius: 12px;
   background: #fff;
-
+  height:350px;
   /* animation setup */
   transition:
     transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
@@ -51,7 +51,7 @@
 }
 
 .doctor-cart-info{
-    padding:3px 7px  5px 5px;
+    padding:3px 7px  5px 5px;;
 }
 .doctor-cart-info p{
     font-size: 16px;

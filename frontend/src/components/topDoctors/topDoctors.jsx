@@ -17,7 +17,7 @@ const topDoctors = () => {
                 {
                     doctors.slice(0, 10).map((item, index) => (
                         <div onClick={()=>navigate(`/appointment/${item._id}`)} key={index} className='topdoctor-detail'>
-                            <img src={`${backendUrl}/uploads/${item.image}`} alt={item.name} />
+                            <img src={item.image} alt={item.name} />
 
                             <div className='topdoctor-info'>
                                 <p style={ { color:"#0FBF00", padding:"1px  0px", fontSize: "13px" }}>Available</p>

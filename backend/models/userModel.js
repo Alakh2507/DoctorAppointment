@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
     type: String, 
     default: ""
   },
+  public_id:{type:String,default:""},
   address: { type: Object, default: { line1: "", line2: "" } }, 
   gender: { type: String, default: "Not Selected" },
   dob: { type: String, default: "Not Selected" },

@@ -51,7 +51,7 @@ const MyProfile = () => {
     <div className='myprofileContainer'>
       {/*imagex  */}
       <div className='upload'>
-        {!isEdit ? <img className='upload-img' style={{ width: "250px", height: "250px", }} src={image ? `${backendUrl}/uploads/${image}` : assets.profile_pic} alt="image" /> : <>
+        {!isEdit ? <img className='upload-img' style={{ width: "250px", height: "250px", }} src={image ? `${image}` : assets.profile_pic} alt="image" /> : <>
 
           <label htmlFor="image"><img style={{ width: "250px", height: "250px" }} src={imageupload ? URL.createObjectURL(imageupload) : assets.profile_pic} alt="" /></label>
           <input type="file" id='image' hidden onChange={(e) => setImageUpload(e.target.files[0])} />

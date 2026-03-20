@@ -12,7 +12,7 @@ const DoctorProfile = () => {
   const[isEditing, setIsEditing]=useState(false)
   const[image,setImage]=useState("")
  
-
+    console.log(profileData)
   useEffect(()=>{
     if(dToken){
       getProfileData()
@@ -72,7 +72,7 @@ const DoctorProfile = () => {
                 src={
                   image
                     ? URL.createObjectURL(image)
-                    : `${backendUrl}/uploads/${profileData.image}`
+                    : `${profileData.image}`
                 }
                 alt=""
               />
@@ -81,7 +81,7 @@ const DoctorProfile = () => {
           :
           <img
             className="mypro-img"
-            src={`${backendUrl}/uploads/${profileData.image}`}
+            src={profileData.image}
             alt=""
           />
       }

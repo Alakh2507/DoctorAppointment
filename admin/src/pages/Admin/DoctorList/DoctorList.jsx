@@ -7,22 +7,24 @@ import { useContext } from 'react'
 const DoctorList = () => {
 
   const { doctors, aToken, getAllDoctors, changeAvailabilitydoctor, backendUrl, } = useContext(AdminContext);
-  
+  console.log(doctors); 
   useEffect(() => {
     if(aToken){
     getAllDoctors();
     }
   }, [aToken])
 
-  return aToken&& (
+  
+  return aToken&&(
     <div className='doctor-container'>
+
       <h3>All Doctors</h3>
       <div className='doctor-cart-container'>
         {
           doctors.map((item, index) => (
             <div key={index} className='doctor-cart'>
               <img
-                src={`${backendUrl}/uploads/${item.image}`}
+                src={item.image}
                 alt={item.name}
               />
               <div className='doctor-cart-info'>

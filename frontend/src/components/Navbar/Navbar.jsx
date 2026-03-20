@@ -29,7 +29,7 @@ const Navbar = ({ sidebar, setSidebar }) => {
         </ul>
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
           {token ? <div className='create'>
-            <img src={ profile?`${backendUrl}/uploads/${profile}`:assets.profile_pic} alt="" />
+            <img src={ profile?`${profile}`:assets.profile_pic} alt="" />
             <img style={{ paddingBottom: "10px" }} src={assets.dropdown_icon} alt="" />
             <div className='my-app-container'>
               <div className='my-appointment'>

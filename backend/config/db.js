@@ -2,10 +2,12 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
    try{
-   await mongoose.connect("mongodb://127.0.0.1:27017/prescripto");
-    console.log(" MongoDB connected successfully");
+   const conn=await mongoose.connect(process.env.MONGO_URI);
+    console.log( `MongoDB connected : ${conn.connection.host}`);
    }catch(error){
     console.log(`Error:${error.message}`)
+    process.exit(1);
+
    }
 }
 

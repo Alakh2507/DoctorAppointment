@@ -1,9 +1,11 @@
+
 import userModel from '../models/userModel.js'
 import validator from 'validator'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import doctorModel from '../models/doctorModel.js'
 import appointmentModel from '../models/appointment.js'
+import cloudinary from '../config/cloudinary.js'
 
 
 //api for gegisterUser
@@ -113,49 +115,85 @@ const getProfile = async (req, res) => {
   }
 }
 
-//api for update user info
+
+// api for update user info
 const updateUserInfo = async (req, res) => {
   try {
 
-    const userId = req.user //  get from token middleware
-  
+    const userId = req.user;
+
     const { name, phone, line1, line2, gender, dob } = req.body;
-    const image = req.file?.filename;
+
+    const user = await userModel.findById(userId);
+
+    if (!user) {
+      return res.json({
+        success: false,
+        message: "User not found"
+      });
+    }
+
+    // keep old values
+    let image = user.image;
+    let public_id = user.public_id;
+
+    // ✅ if new file uploaded
+    if (req.file) {
+
+      // delete old image
+      if (user.public_id) {
+        await cloudinary.uploader.destroy(user.public_id);
+      }
+
+      // upload new image
+      const result = await cloudinary.uploader.upload(
+        `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`,
+        {
+          folder: "uploads",
+        }
+      );
+
+      image = result.secure_url;
+      public_id = result.public_id;
+    }
 
     const updateData = {
       name,
       phone,
       gender,
       dob,
+      image,
+      public_id,
       address: {
         line1,
         line2
       }
     };
 
-    if (image) {
-      updateData.image = image;
-    }
-  
     const updatedUser = await userModel.findByIdAndUpdate(
       userId,
       updateData,
       { new: true }
     );
 
-    if (updateData) {
-      res.status(200).json({
-        success: true,
-        message: "Profile Updated Successfully",
-        userData: updatedUser
-      });
-    }
+    res.status(200).json({
+      success: true,
+      message: "Profile Updated Successfully",
+      userData: updatedUser
+    });
 
   } catch (error) {
+
     console.error(error.message);
-    res.status(500).json({ success: false, message: error.message });
+
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 };
+
 
 //api to book appointment
 const bookAppointment = async (req, res) => {
@@ -250,8 +288,8 @@ const cancelAppointment = async (req, res) => {
   try {
     const { appointmentId } = req.body;
     const userId = req.user;//get userId from middleware
-    if(!userId){
-     return res.json({success:false,message:"Your token expired,Please login again."})
+    if (!userId) {
+      return res.json({ success: false, message: "Your token expired,Please login again." })
     }
 
     const appointmentData = await appointmentModel.findById(appointmentId);
@@ -306,5 +344,5 @@ const cancelAppointment = async (req, res) => {
 
 
 
-export { registerUser, loginUser, getProfile, updateUserInfo, bookAppointment, getAppointment,cancelAppointment }
+export { registerUser, loginUser, getProfile, updateUserInfo, bookAppointment, getAppointment, cancelAppointment }
 

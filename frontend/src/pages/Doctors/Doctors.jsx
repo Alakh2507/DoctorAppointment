@@ -73,7 +73,7 @@ const Doctors = () => {
             Gastroenterologist
           </p>
         </div>
-        
+         
         {/* Doctors Grid */}
         <div className="doctors-grid">
           {filterDoc.map((item, index) => (
@@ -82,7 +82,7 @@ const Doctors = () => {
               onClick={() => navigate(`/appointment/${item._id}`)}
               key={index}
             >
-              <img   className='doctor-image ' src={`${backendUrl}/uploads/${item.image}`} alt={item.name} />
+              <img   className='doctor-image ' src={item.image} alt={item.name} />
 
 
               <div className="doctor-info">

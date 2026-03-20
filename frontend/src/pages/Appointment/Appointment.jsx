@@ -114,7 +114,7 @@ const Appointment = () => {
   return (
     <div className='appointment'>
       <div className='appointment-container'>
-        <img src={`${backendUrl}/uploads/${data.image}`} alt="" />
+        <img src={data.image} alt="" />
 
         <div className='appointment-left-container'>
           <div className='appointment-top'>
