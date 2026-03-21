@@ -71,7 +71,7 @@ const DoctorAppointments = () => {
             appointments.map((item, index) => (
               <div key={index} className='doAp-data'>
                 <p>{index + 1}</p>
-                <div style={{ display: "flex", alignItems: "center" }}><img className='patient-image' src={`${backendUrl}/uploads/${item.userData.image}`} alt="" /> <p>{item.userData.name}</p> </div>
+                <div style={{ display: "flex", alignItems: "center" }}><img className='patient-image' src={item.userData.image} alt="" /> <p>{item.userData.name}</p> </div>
                 <p>{item.payment ? "Online" : "CASH"}</p>
                 <p>{calculateAge(item.userData.dob) ? calculateAge(item.userData.dob) : ""}</p>
                 <p>{item.slotDate}</p>

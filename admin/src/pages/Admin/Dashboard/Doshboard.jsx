@@ -33,7 +33,7 @@ const Doshboard = () => {
       {
        dashData?.latestAppointments?.map((item,index)=>(
           <div key={index} className='dashbord-table-row'>
-            <div className='dashboard-right dashrl' ><img src={`${backendUrl}/uploads/${item.docData.image}`} alt="doctors" /><div><p style={{color:"black" ,fontSize:"12px"}}>{item.docData.name}</p><p>booking on  {item.slotDate} </p></div></div>
+            <div className='dashboard-right dashrl' ><img src={item.docData.image} alt="doctors" /><div><p style={{color:"black" ,fontSize:"12px"}}>{item.docData.name}</p><p>booking on  {item.slotDate} </p></div></div>
             <div className='dashboard-left' >{item.cancelled?(<span style={{color:"red"}}>Appointment cancelled</span>):(<img onClick={()=>cancelAppointmentAdmin(item._id)} src={assets.cancel_icon} alt="" />)}</div>
           </div>
         ))

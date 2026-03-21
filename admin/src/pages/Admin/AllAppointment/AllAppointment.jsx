@@ -38,10 +38,10 @@ const AllAppointment = () => {
           allAppointment && allAppointment.map((item, index) => (
             <div className='table-row' key={item._id}>
               <p>{index + 1}</p>
-              <p className='imgPtag'> <img  src={`${backendUrl}/uploads/${item.userData.image}`} alt="" />{item.userData.name}</p>
+              <p className='imgPtag'> <img  src={item.userData.image} alt="" />{item.userData.name}</p>
               <p>{calculateAge(item.userData.dob)?calculateAge(item.userData.dob):"NA"}</p>
               <p>{item.slotDate} | {item.slotTime}</p>
-              <p className='cancel-image '><img src={`${backendUrl}/uploads/${item.docData.image}`} alt="" />{item.docData.name}</p>
+              <p className='cancel-image '><img src={item.docData.image} lt="" />{item.docData.name}</p>
               <p>₹{item.amount}</p>
               <p>
                 {

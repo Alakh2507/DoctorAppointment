@@ -78,7 +78,7 @@ const DoctorDashboard = () => {
           {
             dashData?.latestAppointments?.map((item, index) => (
               <div key={index} className='dashbord-table-row'>
-                <div className='dashboard-right dashrl' ><img src={`${backendUrl}/uploads/${item.docData.image}`} alt="doctors" /><div><p style={{ color: "black", fontSize: "12px" }}>{item.docData.name}</p><p>booking on  {item.slotDate} </p></div></div>
+                <div className='dashboard-right dashrl' ><img src={item.docData.image} alt="doctors" /><div><p style={{ color: "black", fontSize: "12px" }}>{item.docData.name}</p><p>booking on  {item.slotDate} </p></div></div>
                 <div className='dashboard-left' >
                   {!item.cancelled && !item.isCompleted ? <img
                     onClick={() => {
