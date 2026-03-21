@@ -29,7 +29,7 @@ const RelatedDoctors = ({docId,speciality}) => {
           {
             relatedDoc.map((item,index)=>(
                 <div onClick={()=>navigate(`/appointment/${item._id}`)} className='relatedDoccart'  key={index}>
-                   <img src={`${backendUrl}/uploads/${item.image}`} alt="" />
+                   <img src={item.image} alt="" />
                     <div className='relatedDocCart-info'>
                         <p style={{color:"#0FBF00", fontSize:"12px" }}>available</p>
                         <p style={{color:"black", fontWeight:"550"}}>{item.name}</p>
