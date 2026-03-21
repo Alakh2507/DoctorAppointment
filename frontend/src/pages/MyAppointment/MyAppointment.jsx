@@ -4,12 +4,11 @@ import { useContext } from 'react'
 import { StoreContext } from '../../context/StoreContext.jsx'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { useLocation } from "react-router-dom";
 
 
 const MyAppointment = () => {
 
-  const { doctors, backendUrl, token, } = useContext(StoreContext)
+  const { backendUrl, token, } = useContext(StoreContext)
   const [data, setData] = useState([])
 // const location = useLocation();
   //for month 
@@ -107,7 +106,7 @@ const payNow = async (appointmentId) => {
             <hr style={{ border: "1px solid #EAEFFF", margin: "10px 0" }} />
             <div className='myAppoint-item'>
               <div className='myAppoint-cart'>
-                <img src={`${backendUrl}/uploads/${item.docData.image}`} alt="" />
+                <img src={item.docData.image} alt="" />
                 <div className='myAppoint-info'>
                   <h4 >{item.docData.name}</h4>
                   <p> <span> {item.docData.speciality}</span></p>
