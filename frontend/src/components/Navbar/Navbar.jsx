@@ -8,7 +8,7 @@ import { useNavigate, NavLink } from 'react-router-dom';
 
 const Navbar = ({ sidebar, setSidebar }) => {
 
-  const { token ,setToken ,backendUrl,profile} = useContext(StoreContext)
+  const { token ,setToken,profile} = useContext(StoreContext)
   const navigate = useNavigate();
 
   const LogOutUser=()=>{
@@ -43,13 +43,13 @@ const Navbar = ({ sidebar, setSidebar }) => {
             : <button onClick={() => navigate("/login")} className='nav-btn'>Create account</button>
           }
 
-          {/* <div className='sidebar-icon1'><img
+          <div className='sidebar-icon1'><img
             src={assets.menu_icon}
             style={{ width: "30px", cursor: "pointer" }}
             alt="menu"
             onClick={() => setSidebar(!sidebar)}
           />
-          </div> */}
+          </div>
         </div>
       </div>
       <hr />
