@@ -7,7 +7,7 @@ const SpecialityMenu = () => {
     <div className='menu'id='menupage'>
     <h1>Find by Speciality</h1>
     <p>Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.</p>
-     {/* <div className='specialitymenu'>
+     <div className='specialitymenu'>
            {
             specialityData.map((item,index)=>{
                 return(
@@ -18,7 +18,7 @@ const SpecialityMenu = () => {
                 )
             })
            }
-     </div> */}
+     </div>
     </div>
   )
 }

@@ -16,7 +16,6 @@ const DoctorAppointments = () => {
 
   const appointmentComplete = async (appointmentId) => {
     try {
-      console.log(appointmentId)
       const response = await axios.post(`${backendUrl}/api/doctor/appointmentComplete`, { appointmentId }, {
         headers: {
           Authorization: `Bearer ${dToken}`
