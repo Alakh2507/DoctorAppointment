@@ -21,7 +21,7 @@ const topDoctors = () => {
 
                             <div className='topdoctor-info'>
                                 <p style={ { color:"#0FBF00", padding:"1px  0px", fontSize: "13px" }}>Available</p>
-                                <p style={{fontSize:"18px",color:"black",  fontWeight:"500", paddingTop:"8px"}}>{item.name}</p>
+                                <p className='itemname'>{item.name}</p>
                                 <p style={{color:'gray'}}>{item.speciality}</p>
                             </div>
                         </div>

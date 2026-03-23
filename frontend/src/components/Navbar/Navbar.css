@@ -198,3 +198,18 @@
         font-size: 15px;
     }
 }
+
+@media(max-width:500px) {
+    .my-appointment {
+        gap: 6px;
+        padding: 3px;
+    }
+
+    .my-appointment p {
+        font-size: 14px;
+    }
+    .nav-btn {
+        width: 125px;
+        font-size: 13px;
+    }
+}

@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 85vw;
     margin: auto;
 }
 
@@ -24,7 +23,7 @@
 
     display: flex;
     gap: 30px;
-
+    justify-content: center;
     overflow-x: auto;
     overflow-y: hidden;
 

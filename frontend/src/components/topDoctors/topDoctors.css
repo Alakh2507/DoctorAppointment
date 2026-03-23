@@ -13,6 +13,11 @@
   margin-bottom: 30px;
 }
 
+.itemname{
+    font-weight: 500;   
+    font-size: 18px;
+}
+
 .topdoctor-container{
  width: 70%;
 display: flex;
@@ -57,4 +62,25 @@ align-items: center;
  cursor: pointer;
  background-color: rgb(68, 68, 235);
  border: 1px solid blue;
+}
+
+@media (max-width:500px) {
+    .topdoctor-container{
+        width: 100%;
+        justify-content:space-between;
+        display: flex;
+    }
+    .topdoctor-detail img{
+    width:150px;
+    height: 150px;
+    }
+
+.topdoctor h1{
+    font-weight:500;
+}
+.itemname{
+    font-weight:450;   
+    font-size:15px;
+}
+
 }

@@ -83,7 +83,7 @@ useEffect(() => {
         setProfile(response.data.userData.image)
       }
     } catch (error) {
-      toast.error(error.response?.data?.message)
+      {token&&toast.error(error.response?.data?.message)}
     }
   }
 
