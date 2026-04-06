@@ -188,6 +188,10 @@
 }
 
 @media(max-width:768px) {
+     .navbar-1 img {
+        width:100px;
+        height:35px;
+    }
 
     .my-appointment {
         gap: 7px;
@@ -200,6 +204,12 @@
 }
 
 @media(max-width:500px) {
+    
+    .navbar-1 img {
+        width:80px;
+        height:30px;
+        margin: 4px 0px;
+    }
     .my-appointment {
         gap: 6px;
         padding: 3px;

@@ -20,7 +20,7 @@ const Navbar = ({ sidebar, setSidebar }) => {
   return (
     <div className='navbar'>
       <div className='navbar-1'>
-        <img onClick={() => navigate("/")} src={assets.logo} alt="" />
+        <img className='' onClick={() => navigate("/")} src={assets.logo} alt="" />
         <ul>
           <NavLink to={"/"}> <li >HOME</li></NavLink>
           <NavLink to={"/doctors"}><li >ALL DOCTORS</li></NavLink>
@@ -46,7 +46,7 @@ const Navbar = ({ sidebar, setSidebar }) => {
           <div className='sidebar-icon1'><img
             src={assets.menu_icon}
             className='max-w-[25px] sm:w-[30px]  cursor-pointer'
-            // style={{ width: "25px", cursor: "pointer" }}
+
             alt="menu"
             onClick={() => setSidebar(!sidebar)}
           />
