@@ -40,7 +40,7 @@ const Navbar = ({ sidebar, setSidebar }) => {
             </div>
           </div>
 
-            : <button onClick={() => navigate("/login")} className='nav-btn'>Create account</button>
+            : <button onClick={() => navigate("/login")} className='nav-btn'>Sign Up</button>
           }
 
           <div className='sidebar-icon1'><img

@@ -189,8 +189,8 @@
 
 @media(max-width:768px) {
      .navbar-1 img {
-        width:100px;
-        height:35px;
+        width: 110px;
+        height:40px;
     }
 
     .my-appointment {
@@ -219,8 +219,8 @@
         font-size: 14px;
     }
     .nav-btn {
-        width:110px;
+        width:80px;
         font-size:12px;
-        padding:5px 1px;
+        padding:4px 1px;
     }
 }
