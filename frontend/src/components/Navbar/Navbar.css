@@ -209,7 +209,8 @@
         font-size: 14px;
     }
     .nav-btn {
-        width: 125px;
-        font-size: 13px;
+        width:110px;
+        font-size:12px;
+        padding:4px;
     }
 }

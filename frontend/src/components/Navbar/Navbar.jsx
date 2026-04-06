@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.css'
-import {  useContext } from 'react'
+import { useContext } from 'react'
 import { assets } from '../../assets/assets_frontend/assets.js'
 import { StoreContext } from '../../context/StoreContext.jsx'
 import { useNavigate, NavLink } from 'react-router-dom';
@@ -8,13 +8,13 @@ import { useNavigate, NavLink } from 'react-router-dom';
 
 const Navbar = ({ sidebar, setSidebar }) => {
 
-  const { token ,setToken,profile} = useContext(StoreContext)
+  const { token, setToken, profile } = useContext(StoreContext)
   const navigate = useNavigate();
 
-  const LogOutUser=()=>{
-     localStorage.removeItem("userToken")
-     navigate("/")
-     setToken("")
+  const LogOutUser = () => {
+    localStorage.removeItem("userToken")
+    navigate("/")
+    setToken("")
   }
 
   return (
@@ -29,7 +29,7 @@ const Navbar = ({ sidebar, setSidebar }) => {
         </ul>
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
           {token ? <div className='create'>
-            <img src={ profile?`${profile}`:assets.profile_pic} alt="" />
+            <img src={profile ? `${profile}` : assets.profile_pic} alt="" />
             <img style={{ paddingBottom: "10px" }} src={assets.dropdown_icon} alt="" />
             <div className='my-app-container'>
               <div className='my-appointment'>
@@ -45,7 +45,8 @@ const Navbar = ({ sidebar, setSidebar }) => {
 
           <div className='sidebar-icon1'><img
             src={assets.menu_icon}
-            style={{ width: "30px", cursor: "pointer" }}
+            className='max-w-[25px] sm:w-[30px]  cursor-pointer'
+            // style={{ width: "25px", cursor: "pointer" }}
             alt="menu"
             onClick={() => setSidebar(!sidebar)}
           />
