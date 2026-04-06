@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import './topDoctors.css'
+import './TopDoctors.css'
 import { StoreContext } from '../../context/StoreContext'
 import { useNavigate } from 'react-router-dom'
 
 
-const topDoctors = () => {
+const TopDoctors = () => {
     const {doctors,backendUrl,}=useContext(StoreContext)
 
     const navigate=useNavigate()
@@ -33,4 +33,4 @@ const topDoctors = () => {
     )
 }
 
-export default topDoctors
+export default TopDoctors

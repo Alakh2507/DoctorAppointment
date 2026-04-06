@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 
 const Appointment = () => {
-  const { doctors,backendUrl,token} = useContext(StoreContext)
+  const { doctors, backendUrl, token } = useContext(StoreContext)
   const { docId } = useParams()
 
   const [data, setData] = useState({})
@@ -23,59 +23,60 @@ const Appointment = () => {
     const doctor = doctors.find(doc => doc._id === docId)
     setData(doctor || {})
   }
-  
+
   // console.log(docSlots)
   const getAvailableSlots = () => {
     setDocSlots([])
 
     //getting current date
-    let today =new Date();    
+    let today = new Date();
 
-    for(let i=0;i<7;i++){
+
+    for (let i = 0; i < 7; i++) {
 
       //getting date with index
-      let currentDate=new Date(today)
-       currentDate.setDate(today.getDate()+i)
-         //next seven day today.getDate() = 1
-        //  console.log(currentDate.getDate())
+      let currentDate = new Date(today)
+      currentDate.setDate(today.getDate() + i)
+      //next seven day today.getDate() = 1
+      //  console.log(currentDate.getDate())
 
-       //setting end time of the date with index
-       let endTime=new Date()
-       endTime.setDate(today.getDate()+i)
+      //setting end time of the date with index
+      let endTime = new Date()
+      endTime.setDate(today.getDate() + i)
       //  console.log(endTime.toDateString())
-       endTime.setHours(21,0,0,0)
+      endTime.setHours(21, 0, 0, 0)
       //  console.log(endTime.getMinutes())
-      
-       // setting hours
-       if(today.getDate()===currentDate.getDate()){
-            currentDate.setHours(currentDate.getHours()>10?currentDate.getHours()+1:10)
-            currentDate.setMinutes(currentDate.getMinutes()>30?30:0)
-       }else{
+
+      // setting hours
+      if (i === 0) {
+        currentDate.setHours(currentDate.getHours() > 10 ? currentDate.getHours() + 1 : 10)
+        currentDate.setMinutes(currentDate.getMinutes() > 30 ? 30 : 0)
+      } else {
         currentDate.setHours(10)
         currentDate.setMinutes(0)
-       }
+      }
       // console.log(currentDate)
       // console.log(endTime)
-       let timeSlots=[]
-       while(currentDate<endTime){
-        let formattedTime=currentDate.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})
+      let timeSlots = []
+      while (currentDate < endTime) {
+        let formattedTime = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         // console.log(formattedTime)
         //add slot to array
         timeSlots.push({
-          datetime:new Date(currentDate),
-          time:formattedTime
+          datetime: new Date(currentDate),
+          time: formattedTime
         })
         //Increment current time by 30 minutes
-        currentDate.setMinutes(currentDate.getMinutes()+30)
-       }
-       setDocSlots(prev=>([...prev,timeSlots]))
+        currentDate.setMinutes(currentDate.getMinutes() + 30)
+      }
+      setDocSlots(prev => ([...prev, timeSlots]))
     }
   }
-  
+
 
   //bookAppointment 
-  const bookAppointment=async()=>{
-  
+  const bookAppointment = async () => {
+
     if (!token) {
       return toast.error("Please login first")
     }
@@ -84,23 +85,23 @@ const Appointment = () => {
       return toast.error("Please select time slot")
     }
 
-    try{
-      const date=docSlots[slotIndex][0].datetime
-      let day=date.getDate()
-      let month=date.getMonth()+1
-      let years=date.getFullYear()
+    try {
+      const date = docSlots[slotIndex][0].datetime
+      let day = date.getDate()
+      let month = date.getMonth() + 1
+      let years = date.getFullYear()
 
-      const slotDate=day+"-"+month+"-"+years;
+      const slotDate = day + "-" + month + "-" + years;
       console.log(slotDate, slotTime)
-  
-      const response=await axios.post(`${backendUrl}/api/user/bookAppointment`,{slotDate,slotTime,docId},{headers:{Authorization:`Bearer ${token}`}} )
-      
-      if(response.data.success){
+
+      const response = await axios.post(`${backendUrl}/api/user/bookAppointment`, { slotDate, slotTime, docId }, { headers: { Authorization: `Bearer ${token}` } })
+
+      if (response.data.success) {
         toast.success(response.data.message)
       }
 
-    }catch(error){
-      toast.error(error.response?.data?.message||"Server error")
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Server error")
     }
   }
 
@@ -108,7 +109,7 @@ const Appointment = () => {
   useEffect(() => {
     fetchDocInfo()
     getAvailableSlots()
-    
+
   }, [doctors, docId])
 
   return (
@@ -127,34 +128,34 @@ const Appointment = () => {
             <p>Appointment fees ₹{data.fees}</p>
           </div>
 
-         {/* ........book slots ......... */}
-         <div className='appointment-bottom'>
-          <h4>Booking slots</h4>
-          <div className='appo-bottom-container'>
-            {
-              docSlots.length && docSlots.map((item ,index)=>(
-                <div className={`appo-bottom-info ${index === slotIndex ? "active1" : ""}`} onClick={()=>setSlotIndex(index)} key={index}>
-                  <p>{item[0]&&daysOfWeek[item[0].datetime.getDay()]}</p>
-                  <p>{item[0]&&item[0].datetime.getDate()}</p>
-                </div> 
-              ))
-            }
-          </div>
+          {/* ........book slots ......... */}
+          <div className='appointment-bottom'>
+            <h4>Booking slots</h4>
+            <div className='appo-bottom-container'>
+              {
+                docSlots.length && docSlots.map((item, index) => (
+                  <div className={`appo-bottom-info ${index === slotIndex ? "active1" : ""}`} onClick={() => setSlotIndex(index)} key={index}>
+                    <p>{item[0] && daysOfWeek[item[0].datetime.getDay()]}</p>
+                    <p>{item[0] && item[0].datetime.getDate()}</p>
+                  </div>
+                ))
+              }
+            </div>
 
-          <div className='appo-bottom-time'>
-            {
-              docSlots.length && docSlots[slotIndex].map((item,index)=>(
-                <p className={slotTime === item.time ? " active1" : ""} onClick={()=>setSlotTime(item.time)} key={index}>{item.time.toLowerCase()}</p>
-              ))
-            }
+            <div className='appo-bottom-time'>
+              {
+                docSlots.length && docSlots[slotIndex].map((item, index) => (
+                  <p className={slotTime === item.time ? " active1" : ""} onClick={() => setSlotTime(item.time)} key={index}>{item.time.toLowerCase()}</p>
+                ))
+              }
+            </div>
+            <button className='btn-book' onClick={bookAppointment}>Book an appointment</button>
+
           </div>
-          <button className='btn-book' onClick={bookAppointment}>Book an appointment</button>
-          
-         </div>
-        </div>   
+        </div>
       </div>
-       {/* ..........Related Doctors */}
-       <RelatedDoctors docId={docId} speciality={data.speciality}/>
+      {/* ..........Related Doctors */}
+      <RelatedDoctors docId={docId} speciality={data.speciality} />
     </div>
   )
 }
