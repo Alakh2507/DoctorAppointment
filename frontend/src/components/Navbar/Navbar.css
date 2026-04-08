@@ -191,6 +191,7 @@
      .navbar-1 img {
         width: 110px;
         height:40px;
+        margin: 6px 0px;
     }
 
     .my-appointment {
@@ -208,7 +209,7 @@
     .navbar-1 img {
         width:80px;
         height:30px;
-        margin: 4px 0px;
+        margin: 10px 0px;
     }
     .my-appointment {
         gap: 6px;
